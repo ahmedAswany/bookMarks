@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="shortcut icon" href="images/Group 4.png" />
+    <title>Bookmarks</title>
+</head>
+<style>
+    body{
+        background-image: url('images/free-seamless-tileable-patterns-40.jpg');
+    }
+
+    h2 {
+        font-family: "Righteous", cursive;
+    }
+    ::selection{
+        color: #fff;
+        background-color: #000;
+    }
+    .headLine {
+        font-family: 'Pacifico', cursive;
+        
+        img{
+            position: absolute;
+            z-index: 1;
+            width: 40px;
+        }
+        #animateImg{
+            left: 1em;
+            animation: welcome1 2s infinite;
+            
+            
+        }
+        #animateImg2{ 
+            right: 1em;
+            animation: welcome2 2s infinite;
+    }
+    
+    }
+    @keyframes welcome1 {
+            0%,100%{
+                rotate: 0deg;
+                left: 1em;
+            }
+            25%{
+                left: .5em;
+                rotate: 90deg;
+            }
+            50%{
+                rotate: 180deg;
+                left: 0em;
+            }
+            75%{
+                rotate: 90deg;
+                left: -2em;
+            }
+    }
+  
+    @keyframes welcome2 {
+        0%,100%{
+                rotate: 0deg;
+                right: 1em;
+            }
+            25%{
+                rotate: 90deg;
+                right: .5em;
+            }
+            50%{
+                rotate: 180deg;
+                right: 0em;
+            }
+            75%{
+                rotate: 90deg;
+                right: -2em;
+            }
+    }
+    input:focus{
+        color: #212529 !important;
+    background-color: #fff !important;
+    border-color: #000000 !important;
+    box-shadow: 0 0 0 0.20rem #05050555 !important; 
+    }
+    #backImage{
+        top: 68px;
+    width: 233px;
+    left: 50%;
+    /* right: 50%; */
+    transform: translateX(-50%);
+    }
+
+    .modal-dialog{
+        top: 50%;
+    transform: translateY(-50%) !important;
+        margin-block: 0;
+    }
+    .border-warning:focus{
+    
+    }
+    input[data-valid ="valid"]{
+        border-color: #c8c51e !important;
+    }
+    input[data-valid ="valid"]:focus{
+        border-color: rgb( 255,193,7) !important;
+    box-shadow: 0 0 0 0.20rem #f8d50d8e !important; 
+    }
+   
+</style>
+
+<body>
+  
+    <div class="container  pt-5  mx-auto  ">
+        <div class="header rounded-2 bg-light ">
+            <h1 class="headLine text-center py-4 position-relative overflow-hidden ">
+                <img id="animateImg" src="images/Group 4.png" alt="" srcset=""> 
+                <img class="" id="animateImg2" src="images/Group 4.png" alt="" srcset="">
+                Bookmarker
+            </h1>
+        </div>
+        <div class="form rounded-2 bg-light p-3 py-5 position-relative">
+           
+            <h2 class="text-center my-4 fs-6 position-relative z-2">
+                <i class="fa-solid fa-bookmark"></i>
+                Bookmark your favorite sites
+                <i class="fa-solid fa-bookmark"></i>
+            </h2>
+            <div class="site-name position-relative z-2">
+                <label for="siteName">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    Site Name</label>
+                <input id="siteName"   placeholder=" more than 3 w"  oninput="typing()" type="text" class="w-100 form-control">
+            </div>
+            <div class="site-url my-2 position-relative z-2">
+                <label for="siteUrl">
+                    <i class="fa-solid fa-link"></i>
+                    Site Name</label>
+                <input id="siteUrl"   oninput="typingUrl()" placeholder="must end with .co | .com" type="text" class="w-100 form-control">
+            </div>
+            <div class="text-center mt-4 position-relative z-2">
+                <button class="btn btn-dark px-5" id="addSiteBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="addSites()">Submit</button>
+            </div>
+            <img id="backImage" class="position-absolute" src="images/Group 4.png" alt="" srcset=""> 
+        </div>
+        <table class="table text-center rounded-2  w-100 mt-2">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Website Name</th>
+                <th>Visit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="tbody" class="">
+            
+            </tbody>
+        </table>
+    </div>
+  <!-- Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title" id="exampleModalLabel"><img src="images/Group 4.png" alt="" width="50px"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Site Name or Url is not valid, Please follow the rules below :</h5>
+          <p><i class="fa-solid fa-circle-arrow-right"></i> Site name must contain at least 3 characters</p>
+          <p><i class="fa-solid fa-circle-arrow-right"></i> Site URL must be a valid one</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
